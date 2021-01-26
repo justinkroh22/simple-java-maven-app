@@ -1,9 +1,10 @@
 pipeline {
     
-    agent any
-    
-    tools {
-        maven 'Maven-3.6.3'
+    agent {
+        docker{
+            image "maven:3.6.3-jdk-14"
+            args '-v /root/.m2:/root/.m2'
+        }
     }
     
     stages {
@@ -13,19 +14,17 @@ pipeline {
             }
         }
         
-       stage('Run') {
+         stage('Deliver') { 
             steps {
-                    sh 'java -jar /var/lib/jenkins/.m2/repository/com/mycompany/app/my-app/1.0-SNAPSHOT/my-app-1.0-SNAPSHOT.jar'
+                sh './jenkins/scripts/deliver.sh' 
             }
         }
+        
+
 
     }
     
-    post {
-        always {
-            cleanWs()
-        }   
-    }
+  
     
     
 }
