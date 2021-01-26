@@ -1,6 +1,6 @@
 package com.mycompany.app;
 
-import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Hello world!
