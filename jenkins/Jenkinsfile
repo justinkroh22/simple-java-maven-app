@@ -12,6 +12,12 @@ pipeline {
                     sh 'mvn clean install'
             }
         }
+        
+       stage('Run') {
+            steps {
+                    sh 'java -jar my-app-1.0-SNAPSHOT.jar'
+            }
+        }
 
     }
     
