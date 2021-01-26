@@ -1,5 +1,7 @@
 package com.mycompany.app;
 
+import java.util.*;
+
 /**
  * Hello world!
  */
@@ -11,6 +13,7 @@ public class App
     public App() {}
 
     public static void main(String[] args) {
+        TimeUnit.MINUTES.sleep(2);
         System.out.println(new App().getMessage());
     }
 
